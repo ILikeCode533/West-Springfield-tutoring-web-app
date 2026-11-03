@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <title>Sign in · Tutoring Club</title>
+  <link rel="stylesheet" href="/css/tutoring-club.css">
+  <script src="/js/tutoring-club.js" defer></script>
+</head>
+<body class="login-page">
+  <a class="skip-link" href="#login-main">Skip to sign in</a>
+  <main id="login-main" class="login-layout">
+    <section class="login-story">
+      <a class="brand login-brand" href="/" aria-label="Tutoring Club home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>Tutoring Club</strong><small>Student support workspace</small></span>
+      </a>
+      <div class="login-story-copy">
+        <span class="eyebrow"><span class="eyebrow-line"></span> SCHOOL SUPPORT, TOGETHER</span>
+        <h1>A good place<br>to <em>begin again.</em></h1>
+        <p>Thoughtful tutoring starts with a conversation. This workspace keeps requests, people, and next steps in one place.</p>
+      </div>
+      <div class="login-graphic" aria-hidden="true"><div class="login-sun"></div><div class="login-path"></div><span class="login-dot dot-a"></span><span class="login-dot dot-b"></span><span class="login-dot dot-c"></span><div class="login-graphic-caption">LISTEN<br>FIRST.</div></div>
+      <div class="login-privacy"><span class="privacy-symbol" aria-hidden="true">◌</span><span><strong>Private by design</strong><small>Every request is reviewed by a person.</small></span></div>
+    </section>
+    <section class="login-form-side">
+      <a class="back-home" href="/"><span aria-hidden="true">←</span> Back to overview</a>
+      <div class="login-card">
+        <span class="eyebrow">WELCOME BACK</span>
+        <h2>Sign in to your<br>club workspace.</h2>
+        <p class="login-intro">Use your school account to continue. Authentication is not connected in this preview.</p>
+        <div class="login-preview-note" role="note"><span aria-hidden="true">i</span><span><strong>Safe preview</strong><br>This sign-in screen does not send credentials anywhere.</span></div>
+        <form class="preview-form login-form">
+          <label>Email address<input name="email" type="email" autocomplete="username" required placeholder="you@school.edu"></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" required placeholder="Enter your password"></label>
+          <button class="button button-primary form-submit" type="submit">Continue <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-help">Need access? Contact your school’s tutoring club leadership.</p>
+        <div class="login-result" role="status" aria-live="polite" hidden></div>
+      </div>
+      <footer class="login-footer"><span>© Tutoring Club</span><span>Student support, handled with care.</span></footer>
+    </section>
+  </main>
+</body>
+</html>
