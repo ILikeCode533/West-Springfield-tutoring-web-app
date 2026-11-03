@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ef">
+  <meta name="description" content="A private, human-reviewed workspace for school tutoring support.">
+  <title>Tutoring Club · A steadier way to get support</title>
+  <link rel="stylesheet" href="/css/tutoring-club.css">
+  <script src="/js/tutoring-club.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="/" data-nav="overview" aria-label="Tutoring Club overview">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>Tutoring Club</strong><small>Student support workspace</small></span>
+      </a>
+
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="primary-nav" aria-label="Main">
+        <a href="/" data-nav="overview" class="nav-link">
+          <span class="nav-icon icon-overview" aria-hidden="true"></span><span>Overview</span>
+        </a>
+        <a href="/?view=requests" data-nav="requests" class="nav-link">
+          <span class="nav-icon icon-requests" aria-hidden="true"></span><span>Help requests</span><span class="nav-count">0</span>
+        </a>
+        <a href="/?view=review" data-nav="review" class="nav-link">
+          <span class="nav-icon icon-review" aria-hidden="true"></span><span>Review queue</span><span class="nav-count">0</span>
+        </a>
+        <a href="/?view=tutors" data-nav="tutors" class="nav-link">
+          <span class="nav-icon icon-tutors" aria-hidden="true"></span><span>Tutor registry</span>
+        </a>
+        <a href="/?view=assignments" data-nav="assignments" class="nav-link">
+          <span class="nav-icon icon-assignments" aria-hidden="true"></span><span>Assignments</span>
+        </a>
+        <a href="/?view=messages" data-nav="messages" class="nav-link">
+          <span class="nav-icon icon-messages" aria-hidden="true"></span><span>Conversations</span>
+        </a>
+        <a href="/?view=sessions" data-nav="sessions" class="nav-link">
+          <span class="nav-icon icon-sessions" aria-hidden="true"></span><span>Sessions</span>
+        </a>
+      </nav>
+
+      <div class="workspace-label nav-section-label">CLUB SETUP</div>
+      <nav class="primary-nav" aria-label="Club setup">
+        <a href="/?view=subjects" data-nav="subjects" class="nav-link">
+          <span class="nav-icon icon-subjects" aria-hidden="true"></span><span>Subjects &amp; sectors</span>
+        </a>
+        <a href="/?view=activity" data-nav="activity" class="nav-link">
+          <span class="nav-icon icon-activity" aria-hidden="true"></span><span>Activity log</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="privacy-mini">
+          <span class="privacy-symbol" aria-hidden="true">◌</span>
+          <div><strong>Private by design</strong><p>Requests are reviewed by people, not automatically matched.</p></div>
+        </div>
+        <a class="account-link" href="/login">
+          <span class="account-avatar" aria-hidden="true">TC</span>
+          <span class="account-copy"><strong>Club workspace</strong><small>Preview mode</small></span>
+          <span class="account-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <div class="breadcrumb"><span>School support</span><span class="crumb-slash">/</span><strong id="breadcrumb-current">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="preview-pill"><span class="status-dot"></span> Safe preview</span>
+          <a class="login-link" href="/login">Sign in <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <div class="preview-banner" role="note">
+          <span class="banner-mark" aria-hidden="true">i</span>
+          <p><strong>Preview workspace</strong> · Nothing here is connected to storage. Forms are for review only; no student or tutor information is saved.</p>
+          <button class="banner-dismiss" type="button" aria-label="Dismiss preview notice">×</button>
+        </div>
+
+        <section class="view-panel is-active" data-view="overview" aria-labelledby="overview-title">
+          <div class="overview-hero">
+            <div class="hero-copy">
+              <span class="eyebrow"><span class="eyebrow-line"></span> A little help goes a long way</span>
+              <h1 id="overview-title">Support that<br><em>starts with listening.</em></h1>
+              <p class="hero-description">A calm place to ask for help, find a good fit, and keep every next step clear.</p>
+              <div class="hero-actions">
+                <button class="button button-primary" type="button" data-open-dialog="request-form">Request tutoring <span aria-hidden="true">↗</span></button>
+                <a class="button button-secondary" href="/?view=requests" data-nav="requests">View help requests <span aria-hidden="true">→</span></a>
+              </div>
+              <div class="hero-assurance"><span class="assurance-check" aria-hidden="true">✓</span> Every request is reviewed by a club leader before a match is made.</div>
+            </div>
+            <div class="hero-art" aria-label="Abstract illustration of a learning path" role="img">
+              <div class="art-sun"></div><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+              <div class="art-path"><span class="path-dot"></span><span class="path-dot"></span><span class="path-dot"></span></div>
+              <div class="art-card art-card-top"><span class="mini-dash"></span><span class="mini-dash short"></span><span class="mini-ring"></span></div>
+              <div class="art-card art-card-bottom"><span class="mini-stem"></span><span class="mini-dash"></span></div>
+              <div class="art-caption"><span>01 — 04</span><strong>One step<br>at a time.</strong></div>
+              <div class="art-stamp">A GOOD<br>PLACE TO<br>BEGIN</div>
+            </div>
+          </div>
+
+          <div class="section-heading overview-heading">
+            <div><span class="eyebrow">THE WORKSPACE</span><h2>Everything in its right place.</h2></div>
+            <span class="updated-note"><span class="status-dot muted"></span> No live records</span>
+          </div>
+          <div class="overview-grid">
+            <a class="overview-tile tile-requests" href="/?view=requests" data-nav="requests">
+              <span class="tile-kicker">STUDENT SUPPORT</span><span class="tile-icon" aria-hidden="true">↗</span>
+              <strong>Help requests</strong><span>Follow a request from first note to review.</span><span class="tile-foot"><b>0</b> open requests <i>→</i></span>
+            </a>
+            <a class="overview-tile tile-review" href="/?view=review" data-nav="review">
+              <span class="tile-kicker">HUMAN REVIEW</span><span class="tile-icon" aria-hidden="true">◎</span>
+              <strong>Review queue</strong><span>Check eligibility and decide the next step.</span><span class="tile-foot"><b>0</b> waiting for review <i>→</i></span>
+            </a>
+            <a class="overview-tile tile-tutors" href="/?view=tutors" data-nav="tutors">
+              <span class="tile-kicker">SEMESTER ROSTER</span><span class="tile-icon" aria-hidden="true">⌁</span>
+              <strong>Tutor registry</strong><span>Keep subject eligibility and availability clear.</span><span class="tile-foot"><b>0</b> active tutors <i>→</i></span>
+            </a>
+          </div>
+          <div class="overview-lower">
+            <div class="flow-card">
+              <div class="flow-head"><div><span class="eyebrow">A CLEAR, HUMAN PROCESS</span><h2>From question to connection</h2></div><span class="flow-index">01 / 04</span></div>
+              <div class="flow-steps">
+                <div class="flow-step"><span class="step-number">01</span><div><strong>Ask for support</strong><p>Share a subject, what would help, and when you are available.</p></div></div>
+                <div class="flow-step"><span class="step-number">02</span><div><strong>A leader reviews</strong><p>Club leadership checks the request and tutor eligibility.</p></div></div>
+                <div class="flow-step"><span class="step-number">03</span><div><strong>Find a thoughtful fit</strong><p>A suitable tutor is assigned with a clear record of the decision.</p></div></div>
+                <div class="flow-step"><span class="step-number">04</span><div><strong>Make time to learn</strong><p>Matched students coordinate a session and keep the plan in one place.</p></div></div>
+              </div>
+            </div>
+            <aside class="side-note">
+              <span class="note-mark" aria-hidden="true">“</span><span class="eyebrow">A NOTE ON PRIVACY</span>
+              <h3>Asking for help should feel safe.</h3>
+              <p>Requests are handled privately. A real club leader reviews each one before a tutor match is considered.</p>
+              <a href="/?view=activity" data-nav="activity">See how activity is tracked <span aria-hidden="true">→</span></a>
+              <div class="note-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="requests" aria-labelledby="requests-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">STUDENT SUPPORT</span><h1 id="requests-title">Help requests</h1><p>Keep each request’s status clear, from first note through review and matching.</p></div>
+            <button class="button button-primary" type="button" data-open-dialog="request-form">New request <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="metric-strip"><div><span>ALL REQUESTS</span><strong>0</strong></div><div><span>IN REVIEW</span><strong>0</strong></div><div><span>MATCHED</span><strong>0</strong></div><div class="metric-caption">No student details are shown in preview.</div></div>
+          <div class="toolbar">
+            <label class="search-field"><span class="sr-only">Search requests</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search requests" data-empty-filter></label>
+            <label class="select-wrap"><span class="sr-only">Filter requests by status</span><select data-empty-filter><option value="">All statuses</option><option>Submitted</option><option>In review</option><option>Matched</option><option>Closed</option></select></label>
+            <span class="result-count">0 requests</span>
+          </div>
+          <div class="empty-state collection-empty" data-empty-state>
+            <div class="empty-illustration empty-pages" aria-hidden="true"><span></span><span></span><i>?</i></div>
+            <span class="eyebrow">A CLEAR START</span><h2>No requests yet</h2>
+            <p>New requests will appear here with a status and a private review trail. For this preview, the list stays empty.</p>
+            <button class="button button-outline" type="button" data-open-dialog="request-form">Preview a request form <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="review" aria-labelledby="review-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">LEADERSHIP WORKSPACE</span><h1 id="review-title">Review queue</h1><p>A deliberate pause between a request and a match. Nothing is assigned automatically.</p></div>
+            <button class="button button-secondary" type="button" data-open-dialog="eligibility-form">Review eligibility <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="review-intro"><span class="review-symbol" aria-hidden="true">◎</span><div><strong>People before process.</strong><p>Review a student request, confirm a tutor’s eligible subjects, then choose a next step.</p></div><span class="review-zero">0 items</span></div>
+          <div class="filter-row" role="group" aria-label="Filter review queue">
+            <button class="filter-chip is-selected" type="button" data-filter="all">All <span>0</span></button>
+            <button class="filter-chip" type="button" data-filter="requests">Requests <span>0</span></button>
+            <button class="filter-chip" type="button" data-filter="eligibility">Tutor eligibility <span>0</span></button>
+            <span class="filter-spacer"></span><span class="result-count">Queue is clear</span>
+          </div>
+          <div class="empty-state queue-empty" data-empty-state>
+            <div class="empty-illustration empty-check" aria-hidden="true"><span></span><i>✓</i></div>
+            <span class="eyebrow">NOTHING WAITING</span><h2>The queue is clear.</h2>
+            <p>Requests and eligibility checks will appear here when there is something for a club leader to review.</p>
+            <a class="text-link" href="/?view=requests" data-nav="requests">Go to help requests <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="tutors" aria-labelledby="tutors-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">SEMESTER ROSTER</span><h1 id="tutors-title">Tutor registry</h1><p>Keep availability and subject eligibility current for the semester.</p></div>
+            <button class="button button-primary" type="button" data-open-dialog="tutor-form">Add tutor profile <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="registry-callout"><span class="callout-shape" aria-hidden="true">⌁</span><p><strong>Eligibility is specific.</strong> A tutor is considered only for subjects they have been reviewed and approved to support.</p><a href="/?view=subjects" data-nav="subjects">Manage subjects <span aria-hidden="true">→</span></a></div>
+          <div class="toolbar">
+            <label class="search-field"><span class="sr-only">Search tutor registry</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search tutors" data-empty-filter></label>
+            <label class="select-wrap"><span class="sr-only">Filter tutors by status</span><select data-empty-filter><option value="">All statuses</option><option>Pending review</option><option>Eligible</option><option>Inactive</option></select></label>
+            <label class="select-wrap"><span class="sr-only">Filter by semester</span><select data-empty-filter><option value="">All semesters</option><option>Current semester</option><option>Previous semester</option></select></label>
+            <span class="result-count">0 tutors</span>
+          </div>
+          <div class="empty-state collection-empty" data-empty-state>
+            <div class="empty-illustration empty-roster" aria-hidden="true"><span></span><span></span><span></span><i>+</i></div>
+            <span class="eyebrow">A THOUGHTFUL ROSTER</span><h2>No tutor profiles yet</h2>
+            <p>Approved tutor profiles will live here with their semester, availability, and eligible subjects.</p>
+            <button class="button button-outline" type="button" data-open-dialog="tutor-form">Preview a tutor profile <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="assignments" aria-labelledby="assignments-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">MATCH HISTORY</span><h1 id="assignments-title">Assignments</h1><p>Review who made a match, when it happened, and the reason for a change.</p></div>
+            <button class="button button-primary" type="button" data-open-dialog="assignment-form">Preview assignment <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="history-summary"><div><span class="history-icon" aria-hidden="true">↗</span><span class="eyebrow">ASSIGNMENT HISTORY</span><strong>0</strong><small>recorded decisions</small></div><p>Each assignment keeps its status, assigning leader, timestamp, and reason together — so a handoff is never a mystery.</p></div>
+          <div class="toolbar">
+            <label class="search-field"><span class="sr-only">Search assignments</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search history" data-empty-filter></label>
+            <label class="select-wrap"><span class="sr-only">Filter assignment status</span><select data-empty-filter><option value="">All statuses</option><option>Active</option><option>Reassigned</option><option>Ended</option></select></label>
+            <span class="result-count">0 assignments</span>
+          </div>
+          <div class="empty-state collection-empty" data-empty-state>
+            <div class="empty-illustration empty-history" aria-hidden="true"><span></span><span></span><span></span></div>
+            <span class="eyebrow">DECISIONS, DOCUMENTED</span><h2>No assignments to show</h2>
+            <p>Once a request has been reviewed and a tutor is selected, the decision and any later changes will be recorded here.</p>
+            <a class="text-link" href="/?view=review" data-nav="review">Open the review queue <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="messages" aria-labelledby="messages-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">MATCHED USERS</span><h1 id="messages-title">Conversations</h1><p>Keep tutoring coordination in one private, relevant place.</p></div>
+            <button class="button button-secondary" type="button" data-open-dialog="message-form">Preview a message <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="conversation-note"><span aria-hidden="true">✳</span><p><strong>Conversations follow a match.</strong> Only matched users belong in a tutoring conversation.</p></div>
+          <div class="toolbar">
+            <label class="search-field"><span class="sr-only">Search conversations</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search conversations" data-empty-filter></label>
+            <label class="select-wrap"><span class="sr-only">Filter messages</span><select data-empty-filter><option value="">All conversations</option><option>Unread</option><option>Read</option></select></label>
+            <span class="result-count">0 conversations</span>
+          </div>
+          <div class="empty-state collection-empty" data-empty-state>
+            <div class="empty-illustration empty-chat" aria-hidden="true"><span></span><i></i></div>
+            <span class="eyebrow">A PRIVATE SPACE</span><h2>No conversations yet</h2>
+            <p>When a student and tutor are matched, their coordination can happen here. No messages are stored in this preview.</p>
+            <a class="text-link" href="/?view=assignments" data-nav="assignments">View assignment history <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="sessions" aria-labelledby="sessions-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">TIME TO LEARN</span><h1 id="sessions-title">Tutoring sessions</h1><p>Propose a time, keep confirmations visible, and close the loop after a session.</p></div>
+            <button class="button button-primary" type="button" data-open-dialog="session-form">Propose a session <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="session-tabs" role="group" aria-label="Filter sessions">
+            <button class="session-tab is-selected" type="button" data-filter="all">All <span>0</span></button>
+            <button class="session-tab" type="button" data-filter="proposed">Proposed <span>0</span></button>
+            <button class="session-tab" type="button" data-filter="confirmed">Confirmed <span>0</span></button>
+            <button class="session-tab" type="button" data-filter="completed">Completed <span>0</span></button>
+            <button class="session-tab" type="button" data-filter="cancelled">Cancelled <span>0</span></button>
+          </div>
+          <div class="session-overview"><div class="session-month"><span>SEMESTER PLANNER</span><strong>Sessions at a glance</strong></div><div><b>0</b><span>proposed</span></div><div><b>0</b><span>confirmed</span></div><div><b>0</b><span>completed</span></div></div>
+          <div class="empty-state calendar-empty" data-empty-state>
+            <div class="empty-illustration empty-calendar" aria-hidden="true"><span></span><b></b><b></b><b></b><b></b></div>
+            <span class="eyebrow">MAKE ROOM FOR LEARNING</span><h2>No sessions on the calendar</h2>
+            <p>Proposed, confirmed, completed, and cancelled sessions will be kept together here.</p>
+            <button class="button button-outline" type="button" data-open-dialog="session-form">Preview session details <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="subjects" aria-labelledby="subjects-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">CLUB SETUP</span><h1 id="subjects-title">Subjects &amp; sectors</h1><p>Set up the areas students can request and tutors can be approved to support.</p></div>
+            <button class="button button-primary" type="button" data-open-dialog="subject-form">Add a subject <span aria-hidden="true">＋</span></button>
+          </div>
+          <div class="subject-explainer"><div class="subject-glyph" aria-hidden="true">∿</div><div><strong>A shared language for matching.</strong><p>Subject names help route requests. Tutor eligibility is managed separately and reviewed by club leadership.</p></div></div>
+          <div class="subject-grid">
+            <article class="subject-card"><span class="subject-index">01</span><div class="subject-lines"></div><strong>Subjects</strong><p>Academic areas and courses students may need help with.</p><span class="subject-total">0 subjects</span></article>
+            <article class="subject-card sector-card"><span class="subject-index">02</span><div class="subject-orbit"></div><strong>Sectors</strong><p>Optional groupings to keep the subject list easy to navigate.</p><span class="subject-total">0 sectors</span></article>
+            <article class="subject-card eligibility-card"><span class="subject-index">03</span><div class="subject-check">✓</div><strong>Tutor eligibility</strong><p>Specific approval links a tutor profile to a subject.</p><a href="/?view=review" data-nav="review">Open eligibility review <span aria-hidden="true">→</span></a></article>
+          </div>
+          <div class="empty-state subject-empty" data-empty-state>
+            <span class="eyebrow">READY WHEN YOU ARE</span><h2>No subjects set up</h2>
+            <p>Start with the subjects your club is prepared to support. This preview does not save setup changes.</p>
+            <button class="button button-outline" type="button" data-open-dialog="subject-form">Preview subject setup <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="view-panel" data-view="activity" aria-labelledby="activity-title" hidden>
+          <div class="page-heading">
+            <div><span class="eyebrow">ACCOUNTABILITY</span><h1 id="activity-title">Activity log</h1><p>A clear history of high-impact actions that affect student support.</p></div>
+            <span class="log-status"><span class="status-dot muted"></span> No activity recorded</span>
+          </div>
+          <div class="audit-callout"><span class="audit-mark" aria-hidden="true">⌁</span><div><strong>Important decisions deserve a paper trail.</strong><p>Assignment changes, eligibility decisions, and other high-impact actions belong in the activity log.</p></div></div>
+          <div class="toolbar">
+            <label class="search-field"><span class="sr-only">Search activity log</span><span aria-hidden="true">⌕</span><input type="search" placeholder="Search activity" data-empty-filter></label>
+            <label class="select-wrap"><span class="sr-only">Filter by activity type</span><select data-empty-filter><option value="">All activity</option><option>Assignment</option><option>Eligibility</option><option>Session</option><option>Account</option></select></label>
+            <label class="select-wrap"><span class="sr-only">Filter by date range</span><select data-empty-filter><option value="">Any time</option><option>Past 7 days</option><option>Past 30 days</option></select></label>
+            <span class="result-count">0 events</span>
+          </div>
+          <div class="empty-state collection-empty" data-empty-state>
+            <div class="empty-illustration empty-log" aria-hidden="true"><span></span><span></span><span></span><i>✓</i></div>
+            <span class="eyebrow">A QUIET PAPER TRAIL</span><h2>No activity yet</h2>
+            <p>High-impact changes will be listed here with who made the change, when, and what was affected.</p>
+            <a class="text-link" href="/?view=assignments" data-nav="assignments">Explore assignment history <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer"><span>Student support, handled with care.</span><span><i></i> Private club workspace · Preview only</span></footer>
+    </div>
+  </div>
+
+  <dialog class="action-dialog" id="action-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-top"><span class="dialog-kicker">SAFE PREVIEW · NOT SAVED</span><button type="button" class="dialog-close" data-close-dialog aria-label="Close dialog">×</button></div>
+    <div class="dialog-content" id="dialog-content"></div>
+    <div class="dialog-result" id="dialog-result" role="status" aria-live="polite" hidden></div>
+    <div class="dialog-bottom"><span><span class="status-dot"></span> No information leaves this page.</span><span>Preview only</span></div>
+  </dialog>
+
+  <template id="request-form">
+    <form class="preview-form">
+      <span class="eyebrow">STUDENT SUPPORT</span><h2 id="dialog-title">Request tutoring</h2>
+      <p class="form-intro">Tell us what kind of support would be useful. A club leader reviews every request before a match.</p>
+      <label>Subject <select name="subject" required><option value="">Choose a subject</option><option>Math</option><option>Science</option><option>English</option><option>History</option><option>Other</option></select></label>
+      <div class="form-row"><label>Course or class <span class="optional">Optional</span><input name="course" type="text" placeholder="e.g. course or class name"></label><label>When are you available?<input name="availability" type="text" placeholder="Days and times that work"></label></div>
+      <label>What would you like help with?<textarea name="description" rows="4" required placeholder="Share a little about what you are working on."></textarea></label>
+      <p class="privacy-hint">Please do not include sensitive personal information. Your request is private and reviewed by a person.</p>
+      <button class="button button-primary form-submit" type="submit">Preview request <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="eligibility-form">
+    <form class="preview-form">
+      <span class="eyebrow">HUMAN REVIEW</span><h2 id="dialog-title">Tutor eligibility review</h2>
+      <p class="form-intro">Record the tutor profile and subject being considered. This preview cannot verify or store eligibility.</p>
+      <label>Tutor profile reference<input name="tutor" required placeholder="Enter a profile reference"></label>
+      <label>Subject<select name="subject" required><option value="">Choose a subject</option><option>Math</option><option>Science</option><option>English</option><option>History</option><option>Other</option></select></label>
+      <label>Review outcome<select name="outcome" required><option value="">Choose an outcome</option><option>Eligible</option><option>Needs more information</option><option>Not eligible</option></select></label>
+      <label>Review note <span class="optional">Optional</span><textarea name="note" rows="3" placeholder="Reason for this decision"></textarea></label>
+      <button class="button button-primary form-submit" type="submit">Preview review <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="tutor-form">
+    <form class="preview-form">
+      <span class="eyebrow">SEMESTER ROSTER</span><h2 id="dialog-title">Tutor profile</h2>
+      <p class="form-intro">A profile is not active until eligibility is reviewed by a club leader.</p>
+      <label>Student name<input name="name" required autocomplete="name" placeholder="Enter name"></label>
+      <div class="form-row"><label>Semester<input name="semester" required placeholder="e.g. Fall term"></label><label>Profile status<select name="status" required><option value="">Choose status</option><option>Pending review</option><option>Eligible</option><option>Inactive</option></select></label></div>
+      <label>Availability<textarea name="availability" rows="3" required placeholder="Days and times available"></textarea></label>
+      <fieldset><legend>Subjects to review</legend><div class="check-options"><label><input type="checkbox" name="subjects" value="Math"> Math</label><label><input type="checkbox" name="subjects" value="Science"> Science</label><label><input type="checkbox" name="subjects" value="English"> English</label><label><input type="checkbox" name="subjects" value="History"> History</label></div></fieldset>
+      <button class="button button-primary form-submit" type="submit">Preview profile <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="assignment-form">
+    <form class="preview-form">
+      <span class="eyebrow">LEADER ACTION</span><h2 id="dialog-title">Assignment preview</h2>
+      <p class="form-intro">Assignments require an already-reviewed request and an eligible tutor. No records exist in this preview.</p>
+      <label>Request reference<input name="request" required placeholder="Enter request reference"></label>
+      <label>Eligible tutor reference<input name="tutor" required placeholder="Enter tutor reference"></label>
+      <label>Decision reason<textarea name="reason" rows="3" required placeholder="Briefly record why this is a good fit"></textarea></label>
+      <button class="button button-primary form-submit" type="submit">Preview assignment <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="message-form">
+    <form class="preview-form">
+      <span class="eyebrow">MATCHED CONVERSATION</span><h2 id="dialog-title">Message preview</h2>
+      <p class="form-intro">Messages are only for users with an existing tutoring match. This preview does not send or store messages.</p>
+      <label>Matched conversation reference<input name="conversation" required placeholder="Enter conversation reference"></label>
+      <label>Message<textarea name="message" rows="5" required placeholder="Write a coordination note"></textarea></label>
+      <button class="button button-primary form-submit" type="submit">Preview message <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="session-form">
+    <form class="preview-form">
+      <span class="eyebrow">SESSION PLANNER</span><h2 id="dialog-title">Propose a session</h2>
+      <p class="form-intro">Sessions are connected to a tutoring match. A proposal is not a confirmed booking.</p>
+      <label>Matched assignment reference<input name="assignment" required placeholder="Enter assignment reference"></label>
+      <div class="form-row"><label>Start date and time<input name="start" type="datetime-local" required></label><label>End date and time<input name="end" type="datetime-local" required></label></div>
+      <label>Proposed by<select name="proposer" required><option value="">Choose participant</option><option>Student</option><option>Tutor</option></select></label>
+      <button class="button button-primary form-submit" type="submit">Preview session <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+  <template id="subject-form">
+    <form class="preview-form">
+      <span class="eyebrow">CLUB SETUP</span><h2 id="dialog-title">Add a subject</h2>
+      <p class="form-intro">Keep the subject list easy for students to understand and request.</p>
+      <label>Subject name<input name="subject" required placeholder="e.g. Biology"></label>
+      <label>Sector <span class="optional">Optional</span><input name="sector" placeholder="e.g. Sciences"></label>
+      <label>Short description <span class="optional">Optional</span><textarea name="description" rows="3" placeholder="A short note about this subject"></textarea></label>
+      <button class="button button-primary form-submit" type="submit">Preview subject <span aria-hidden="true">→</span></button>
+    </form>
+  </template>
+</body>
+</html>
