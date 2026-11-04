@@ -1,0 +1,2 @@
+[nix]
+packages = ["openjdk21_headless"]
