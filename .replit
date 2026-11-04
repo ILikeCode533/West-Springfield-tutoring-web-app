@@ -1,2 +1,3 @@
 [nix]
 packages = ["openjdk21_headless"]
+channel = "stable-25_05"

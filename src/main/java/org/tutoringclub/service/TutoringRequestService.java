@@ -9,6 +9,8 @@ import org.tutoringclub.repository.SubjectRepository;
 public class TutoringRequestService {
 
     private final TutoringRequestRepository requestRepository;
+    private final UserRepository userRepository;
+    private final SubjectRepository subjectRepository;
 
     public TutoringRequestService(
             TutoringRequestRepository requestRepository,
