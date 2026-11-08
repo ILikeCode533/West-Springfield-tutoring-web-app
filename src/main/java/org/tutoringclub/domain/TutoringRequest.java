@@ -28,8 +28,15 @@ public class TutoringRequest {
   private User Student;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "subject_id", nullable = false)
-    private Subject subject;
+  @JoinColumn(name = "subject_id", nullable = false)
+  private Subject subject;
+  
+  public void setStudent(User newStudent){
+    this.Student = newStudent;
+  }
+  public void setSubject(Subject newSubject){
+    this.subject = newSubject;
+  }
 
   
 }
